@@ -19,7 +19,7 @@ def get_anouncement(course_id):
 def get_anouncements(course_id):
     """
     This function gets the most recent anouncement of the course.
-    
+    Returns as a string.
     
     """
     canvas = Canvas(LINK, API_TOKEN)
