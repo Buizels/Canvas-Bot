@@ -4,7 +4,7 @@ from canvasapi import Canvas
 
 def get_anouncement(course_id):
     """
-    This function gets the most recent anouncement of the course
+    This function gets the most recent anouncement of the course.
     
     """
     canvas = Canvas(LINK, API_TOKEN)
