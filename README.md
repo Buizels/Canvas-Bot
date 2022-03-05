@@ -18,8 +18,8 @@ Ideas:
 - Use python to make a bot
     - Issues:
         - Being able make a secret .py file
-        - Bot cannot be used per class
-            - More work for the user to set up the bot
+        - Currently: personal usage
+            - Planning: make the bot work further more for a server
         - Not everyones assignment is due on the same time
 
 - Make functions in the back-end to be used in bot commands
@@ -27,3 +27,7 @@ Ideas:
 
 - Have the bot display the upcoming assignments and the due dates for registered
 classes.
+
+- Run the bot on AWS
+
+Commands:
