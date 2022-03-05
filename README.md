@@ -1,7 +1,14 @@
 # Canvas-Bot
 
 Disclaimer:
-This bot is not for personal usage in its current state. 
+This bot is for personal and private usage in its current state. 
+
+Description:
+This is a discord bot that makes use of the open Canvas api to remind students
+on discord about their upcoming assignments and reminds them to check their
+Canvas about more details about the assigments' due date. Using a mixture of
+Python to create functions used in commands and for the bot and will be running
+on AWS for hosting.
 
 Problem:
 How can we make a more efficient method to keep track of academic tasks through 
@@ -23,7 +30,7 @@ Ideas:
         - Not everyones assignment is due on the same time
 
 - Make functions in the back-end to be used in bot commands
-    - Simple functions
+    - Use simple functions
 
 - Have the bot display the upcoming assignments and the due dates for registered
 classes.
