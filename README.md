@@ -1,5 +1,6 @@
 # Canvas-Bot
 
+<<<<<<< HEAD
 IMPORTANT:
 
 
@@ -18,3 +19,4 @@ Ideas:
 - Use python to make a bot
     - Issues:
         - 
+
