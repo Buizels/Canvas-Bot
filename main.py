@@ -1,8 +1,9 @@
 # Main file for the Discord Bot
 
-from secrets import TOKEN
+from secrets import TOKEN, course_id
 import discord
 import canv
+
 
 client = discord.Client()
 
@@ -10,10 +11,10 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.event()
-async def on_ready():
+@client.event
+async def on_message(message):
     username = str(message.author).split('#')[0]
-    user_message = str(message.contect)
+    user_message = str(message.content)
     channel = str(message.channel.name)
     print(f'{username}: {user_message} ({channel})')
 
@@ -21,7 +22,10 @@ async def on_ready():
         return
 
     if message.channel.name == 'testing':
-        if user_message.lower() == 'hello':
-            await message.channe.send(f'fuck you {username}')
+        if user_message.lower() == '!anon':
+            await message.channel.send(canv.get_anouncement(course_id))
+            return
+        elif user_message.lower() == '!eric':
+            await message.channel.send(f'')
 
 client.run(TOKEN)
