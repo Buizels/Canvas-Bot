@@ -16,9 +16,24 @@ def get_anouncement(course_id):
 
     return announce[0]
 
+def get_anouncements(course_id):
+    """
+    This function gets the most recent anouncement of the course.
+    
+    
+    """
+    canvas = Canvas(LINK, API_TOKEN)
+    course = canvas.get_course(course_id)
+   
+    announce = canvas.get_announcements([course_id])
+
+    return announce
+
 def get_next_assignment(course_id):
     """
     This function gets the next assignment of the course.
+    Use <assignment>.due_at to get the due date.
+    Use <assignment>.name to get the name of the assignment.
     
     """
     canvas = Canvas(LINK, API_TOKEN)
