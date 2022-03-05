@@ -1,8 +1,7 @@
 # Canvas-Bot
 
-<<<<<<< HEAD
-IMPORTANT:
-
+Disclaimer:
+This bot is not for personal usage in its current state. 
 
 Problem:
 How can we make a more efficient method to keep track of academic tasks through 
@@ -18,5 +17,13 @@ the bot.
 Ideas:
 - Use python to make a bot
     - Issues:
-        - 
+        - Being able make a secret .py file
+        - Bot cannot be used per class
+            - More work for the user to set up the bot
+        - Not everyones assignment is due on the same time
 
+- Make functions in the back-end to be used in bot commands
+    - Simple functions
+
+- Have the bot display the upcoming assignments and the due dates for registered
+classes.
