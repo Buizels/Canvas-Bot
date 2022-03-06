@@ -24,7 +24,7 @@ async def embedMessage(context):
     await context.message.channel.send(embed = myEmbed)
     return   
 
-@bot.command(name = 'anon')
+@bot.command(name = 'anon') #gets anouncement
 async def embedMessage(message):
     if message.channel.name == 'testing':
         await message.channel.send(canv.get_anouncement(course_id))
@@ -32,28 +32,29 @@ async def embedMessage(message):
 
         return
 
-@bot.command(name = 'anons') #paginatedList
+@bot.command(name = 'anons') #gets anouncements, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
         await message.channel.send(canv.get_anouncements(course_id))        
 
         return
 
-@bot.command(name = 'gna')
+@bot.command(name = 'gna') #gets next assignment
 async def embedMessage(message):
     if message.channel.name == 'testing':
-        await message.channel.send(canv.get_next_assignment(course_id))        
+        next_assign = canv.get_next_assignment(course_id)
+        await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
 
         return
 
-@bot.command(name = 'nas') #Command raised an exception, invalid form body
+@bot.command(name = 'nas') #get next multiple assignments, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
         await message.channel.send(canv.get_next_assignments(course_id))        
 
         return
 
-@bot.command(name = 'gas') #paginatedList Assignment
+@bot.command(name = 'gas') #gets all assignments, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
         await message.channel.send(canv.get_all_assignments(course_id))        
