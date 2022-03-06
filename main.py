@@ -38,8 +38,4 @@ async def embedMessage(message):
 
     # myEmbed.add_field(name = title, value = text)
 
-
-
-
-
 bot.run(TOKEN)
