@@ -50,9 +50,14 @@ async def embedMessage(message):
 @bot.command(name = 'nas') #get next multiple assignments, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
-        await message.channel.send(canv.get_next_assignments(course_id))        
+        next_assignments = canv.get_next_assignments(course_id)
+        for i in next_assignments:
+            await message.channel.send(i.name + " is due at: " + str(i.due_at))
 
-        return
+        # if message.channel.name == 'testing':
+        #     await message.channel.send(canv.get_next_assignments(course_id))        
+
+            return
 
 @bot.command(name = 'gas') #gets all assignments, ERROR
 async def embedMessage(message):
