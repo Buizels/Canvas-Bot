@@ -11,6 +11,10 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+# @client.commands(name = 'v')
+# async def version(context):
+#     myEmbed = discord.Embed(title = "Current Version", description = "Bot version: 1.0.0", coloe)
+
 @client.event 
 async def on_message(message):
     username = str(message.author).split('#')[0]
