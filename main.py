@@ -32,10 +32,40 @@ async def embedMessage(message):
 
         return
 
+@bot.command(name = 'anons') #paginatedList
+async def embedMessage(message):
+    if message.channel.name == 'testing':
+        await message.channel.send(canv.get_anouncements(course_id))        
+
+        return
+
+@bot.command(name = 'gna')
+async def embedMessage(message):
+    if message.channel.name == 'testing':
+        await message.channel.send(canv.get_next_assignment(course_id))        
+
+        return
+
+@bot.command(name = 'nas') #Command raised an exception, invalid form body
+async def embedMessage(message):
+    if message.channel.name == 'testing':
+        await message.channel.send(canv.get_next_assignments(course_id))        
+
+        return
+
+@bot.command(name = 'gas') #paginatedList Assignment
+async def embedMessage(message):
+    if message.channel.name == 'testing':
+        await message.channel.send(canv.get_all_assignments(course_id))        
+
+        return
+
     # myEmbed = discord.Embed(title = "Anouncement", color = 0x000000)
     # title = str(canv.get_anouncement(course_id))
     # text = str(canv.get_anouncement_content(canv.get_announcement(course_id).message))
 
     # myEmbed.add_field(name = title, value = text)
+
+
 
 bot.run(TOKEN)
