@@ -30,7 +30,7 @@ def get_anouncements(course_id):
 
     """
     canvas = Canvas(LINK, API_TOKEN)
-    course = canvas.get_course(course_id)
+    # course = canvas.get_course(course_id)
    
     announce = canvas.get_announcements([course_id])
 

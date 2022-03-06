@@ -1,57 +1,46 @@
 # Main file for the Discord Bot
 
 from secrets import TOKEN, course_id
-from discord.ext import commands
 import discord
+from discord.ext import commands
 import canv
+import os
 
+title = ''
+text = ''
 
+bot = commands.Bot(command_prefix="!")
 
-client = discord.Client()
-bot = commands.Bot(command_prefix='!')
-
-@client.event # Bot Status
+@bot.event # Bot Status
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-
-# @client.event 
-# async def on_message(message):
-#     username = str(message.author).split('#')[0]
-#     user_message = str(message.content)
-#     channel = str(message.channel.name)
-#     print(f'{username}: {user_message} ({channel})')
-
-#     if message.author ==  client.user:
-#         return
-
-#     if message.channel.name == 'testing':
-
-#         if user_message.lower() == '!anon':
-#             await message.channel.send(canv.get_anouncement(course_id))
-#             # await message.channel.send("\n")
-#             await message.channel.send(canv.get_anouncement_content(canv.get_anouncement(course_id).message))        
-
-#             return
+    print('We have logged in as {0.user}'.format(bot))
 
 
-#         elif user_message.lower() == '!anons':
-#             await message.channel.send(canv.get_anouncements(course_id))
+@bot.command(name = 'v')
+async def embedMessage(context):
+    myEmbed = discord.Embed(title ="Current Version", description="Bot Version: 1.0.0", color = 0x000000)
+    myEmbed.add_field(name = "Version Code:", value = "v1.0.0", inline=False)
+    myEmbed.add_field(name = "Date Released:", value = "March 6, 2022", inline=False)
+    # myEmbed.set_footer(text ="Sample footer")
+    myEmbed.set_author(name = "Buizels")
 
-#             return
-        
-#         elif user_message.lower() == "!na": 
-#             await message.channel.send(canv.get_next_assignment(course_id))
-            
-#             return
-        
-#         elif user_message.lower() == "!nas":
-#             await message.channel.send(canv.get_anouncements(course_id))
-            
-#             return
+    await context.message.channel.send(embed = myEmbed)
+    return   
 
-#         elif user_message.lower() == "!gas":
-#             await message.channel.send(canv.get_all_assignments(course_id))
+@bot.command(name = 'anon')
+async def embedMessage(message):
+    if message.channel.name == 'testing':
+        await message.channel.send(canv.get_anouncement(course_id))
+        await message.channel.send(canv.get_anouncement_content(canv.get_anouncement(course_id).message))        
 
-#             return
+        return
 
-client.run(TOKEN)
+    # myEmbed = discord.Embed(title = "Anouncement", color = 0x000000)
+    # title = str(canv.get_anouncement(course_id))
+    # text = str(canv.get_anouncement_content(canv.get_announcement(course_id).message))
+
+    # myEmbed.add_field(name = title, value = text)
+
+
+
+bot.run(TOKEN)
