@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import canv
 import os
+from dateutil import parser
 
 bot = commands.Bot(command_prefix="!")
 
@@ -68,8 +69,12 @@ async def embedMessage(message):
 @bot.command(name = 'gas') #gets all assignments, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
-        await message.channel.send(canv.get_all_assignments(course_id))        
+        next_assigns = canv.get_all_assignments(course_id)
+        string = ''
+        for i in  next_assigns:
+            string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
 
+        await message.channel.send(string)
         return
 
 bot.run(TOKEN)
