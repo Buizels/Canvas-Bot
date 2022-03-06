@@ -44,7 +44,8 @@ def get_anouncement_content(announce):
 
     """
     CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
-    return re.sub(CLEANR, '', announce.message)
+    # return re.sub(CLEANR, '', announce)
+    return CLEANR.sub('', announce)
 
 
 """

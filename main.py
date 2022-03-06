@@ -25,7 +25,9 @@ async def on_message(message):
 
         if user_message.lower() == '!anon':
             await message.channel.send(canv.get_anouncement(course_id))
-            await message.channel.send(canv.get_anouncement_content(announce))
+            # await message.channel.send("\n")
+            await message.channel.send(canv.get_anouncement_content(canv.get_anouncement(course_id).message))        
+
             return
 
 
