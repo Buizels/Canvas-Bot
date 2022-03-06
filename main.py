@@ -35,9 +35,16 @@ async def embedMessage(message):
 @bot.command(name = 'anons') #gets anouncements, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
-        await message.channel.send(canv.get_anouncements(course_id))        
 
-        return
+        list_announcements = []
+        announcement = canv.get_anouncements(course_id)
+        for i in announcement:
+            list_announcements += [i.title]
+
+        # Print first 3 assignments
+        for i in range(3):
+            await message.channel.send(list_announcements[i])    
+            return
 
 @bot.command(name = 'gna') #gets next assignment
 async def embedMessage(message):
@@ -65,13 +72,5 @@ async def embedMessage(message):
         await message.channel.send(canv.get_all_assignments(course_id))        
 
         return
-
-    # myEmbed = discord.Embed(title = "Anouncement", color = 0x000000)
-    # title = str(canv.get_anouncement(course_id))
-    # text = str(canv.get_anouncement_content(canv.get_announcement(course_id).message))
-
-    # myEmbed.add_field(name = title, value = text)
-
-
 
 bot.run(TOKEN)
