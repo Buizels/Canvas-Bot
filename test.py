@@ -19,3 +19,14 @@ canvas = Canvas(LINK, API_TOKEN)
 # next_announce = canv.get_anouncement(course_id)
 # content = canv.get_anouncement_content(next_announce)
 # print(content)
+
+# Get all assignments
+
+list_assignments = []
+assignments = canv.get_all_assignments(course_id)
+for i in assignments:
+    list_assignments += [i.name]
+
+# Print first 3 assignments
+for i in range(3):
+    print(list_assignments[i])
