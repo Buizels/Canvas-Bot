@@ -5,28 +5,23 @@ from discord.ext import commands
 import discord
 import canv
 
-
-
 client = discord.Client()
-client = commands.Bot(command_prefix = "!")
+commands = commands.Bot(command_prefix = "!")
 
 
 @client.event # Bot Status
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.command(name = 'v')
-async def version(message):
-    if message.channel.name == 'testing':
+@commands.command(name = 'v')
+async def version(context):
+    myEmbed = discord.Embed(title ="Current Version", description="Bot Version: 1.0.0", color = 0x000000)
+    myEmbed.add_field(name = "Version Code:", value = "v1.0.0", inline=False)
+    myEmbed.add_field(name = "Date Released:", value = "March 6, 2022", inline=False)
+    # myEmbed.set_footer(text ="Sample footer")
+    myEmbed.set_author(name = "Buizels")
 
-        myEmbed = discord.Embed(title ="Current Version", description="Bot Version: 1.0.0", color = 0x000000)
-        myEmbed.add_field(name="Version Code:", value="v1.0.0", inline=False)
-        myEmbed.add_field(name="Date Released:", value = "March 6, 2022", inline=False)
-        # myEmbed.set_footer(text ="Sample footer")
-        myEmbed.set_author(name="Buizels")
-
-        await message.channel.send(embed = myEmbed)
-        return
+    await context.message.channel.send(embed = myEmbed)
 
 # async def version(context):
 #     myEmbed = discord.Embed(title = "Current Version", description = "Bot version: 1.0.0", coloe)
