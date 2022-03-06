@@ -60,12 +60,4 @@ async def embedMessage(message):
 
         return
 
-    # myEmbed = discord.Embed(title = "Anouncement", color = 0x000000)
-    # title = str(canv.get_anouncement(course_id))
-    # text = str(canv.get_anouncement_content(canv.get_announcement(course_id).message))
-
-    # myEmbed.add_field(name = title, value = text)
-
-
-
 bot.run(TOKEN)
