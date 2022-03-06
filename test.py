@@ -12,6 +12,10 @@ canvas = Canvas(LINK, API_TOKEN)
 # # Print the name of the next assignment and the due date
 # print("Latest anouncement: " + str(canv.get_anouncement(course_id)))
 
-next_assignments = canv.get_next_assignments(course_id)
-for i in next_assignments:
-    print(i.name + " is due at: " + str(i.due_at))
+# next_assignments = canv.get_next_assignments(course_id)
+# for i in next_assignments:
+#     print(i.name + " is due at: " + str(i.due_at))
+
+# next_announce = canv.get_anouncement(course_id)
+# content = canv.get_anouncement_content(next_announce)
+# print(content)
