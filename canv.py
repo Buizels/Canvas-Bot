@@ -118,6 +118,8 @@ def get_all_assignments(course_id):
 
     return assignments
 
+# Helper functions
+
 def convert_to_pst(date_string):
     """
     This function converts a string to a datetime object in PST.
