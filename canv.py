@@ -117,3 +117,13 @@ def get_all_assignments(course_id):
     assignments = course.get_assignments()
 
     return assignments
+
+def convert_to_pst(date_string):
+    """
+    This function converts a string to a datetime object in PST.
+    Returns a datetime object.
+
+    """
+    date = parser.parse(date_string)
+    date = date.astimezone(timezone('US/Pacific'))
+    return date
