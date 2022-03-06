@@ -6,6 +6,10 @@ import os
 
 client = discord.Client()
 
+client.event # Bot Status
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
+
 @client.event 
 async def on_message(message):
     username = str(message.author).split('#')[0]
@@ -53,10 +57,6 @@ async def on_message(message):
         elif user_message.lower() == "!gas":
             await message.channel.send(canv.get_all_assignments(course_id))
 
-            return
-
-        else: 
-            await message.channel.send("Error: Not a valid command.")
             return
 
 client.run(TOKEN)
