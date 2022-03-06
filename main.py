@@ -8,18 +8,20 @@ import canv
 
 
 client = discord.Client()
-client = commands.Bot(command_prefix="!")
+client = commands.Bot(command_prefix = '!')
 
-@client.command(name='v')
+@client.command(name = 'v')
 async def version(context):
+    if message.channel.name == 'testing':
 
-    myEmbed = discord.Embed(title ="Current Version", description="The bot is in Version 1.0", color=0x00ff00)
-    myEmbed.add_field(name="Version Code:", value="v1.0.0", inline=False)
-    myEmbed.add_field(name="Date Released:", value="Feburary 1st, 2022", inline=False)
-    myEmbed.set_footer(text ="Sample footer")
-    myEmbed.set_author(name="Rafiul Islam")
+        myEmbed = discord.Embed(title ="Current Version", description="Bot Version: 1.0.0", color = 0x000000)
+        myEmbed.add_field(name="Version Code:", value="v1.0.0", inline=False)
+        myEmbed.add_field(name="Date Released:", value = "March 6, 2022", inline=False)
+        # myEmbed.set_footer(text ="Sample footer")
+        myEmbed.set_author(name="Buizels")
 
-    await context.message.channel.send(embed=myEmbed)
+        await message.channel.send(embed = myEmbed)
+        return
 
 @client.event # Bot Status
 async def on_ready():
