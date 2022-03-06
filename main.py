@@ -39,7 +39,7 @@ async def embedMessage(context):
 
 @bot.command(name = 'anon') #gets anouncement
 async def embedMessage(message):
-    if message.channel.name == 'testing':
+    if message.channel.name == 'canvas':
         await message.channel.send(canv.get_anouncement(course_id))
         await message.channel.send(canv.get_anouncement_content(canv.get_anouncement(course_id).message))        
 
@@ -47,7 +47,7 @@ async def embedMessage(message):
 
 @bot.command(name = 'anons') #gets anouncements, ERROR
 async def embedMessage(message):
-    if message.channel.name == 'testing':
+    if message.channel.name == 'canvas':
 
         list_announcements = []
         announcement = canv.get_anouncements(course_id)
@@ -62,7 +62,7 @@ async def embedMessage(message):
 
 @bot.command(name = 'gna') #gets next assignment
 async def embedMessage(message):
-    if message.channel.name == 'testing':
+    if message.channel.name == 'canvas':
         next_assign = canv.get_next_assignment(course_id)
         await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
 
@@ -70,7 +70,7 @@ async def embedMessage(message):
 
 @bot.command(name = 'nas') #get next multiple assignments
 async def embedMessage(message):
-    if message.channel.name == 'testing':
+    if message.channel.name == 'canvas':
         next_assignments = canv.get_next_assignments(course_id)
         for i in next_assignments:
             await message.channel.send(i.name + " is due at: " + str(i.due_at))      
