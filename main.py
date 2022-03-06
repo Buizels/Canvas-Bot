@@ -45,7 +45,8 @@ async def embedMessage(message):
         # Print first 3 assignments
         for i in range(3):
             await message.channel.send(list_announcements[i])    
-            return
+
+        return
 
 @bot.command(name = 'gna') #gets next assignment
 async def embedMessage(message):
@@ -53,7 +54,7 @@ async def embedMessage(message):
         next_assign = canv.get_next_assignment(course_id)
         await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
 
-        returns
+        return
 
 @bot.command(name = 'nas') #get next multiple assignments, ERROR
 async def embedMessage(message):
@@ -66,15 +67,16 @@ async def embedMessage(message):
         await message.channel.send(string)
         return
 
-@bot.command(name = 'gas') #gets all assignments, ERROR
-async def embedMessage(message):
-    if message.channel.name == 'testing':
-        next_assigns = canv.get_all_assignments(course_id)
-        string = ''
-        for i in  next_assigns:
-            string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
+# !TODO
+# @bot.command(name = 'gas') #gets all assignments, ERROR
+# async def embedMessage(message):
+#     if message.channel.name == 'testing':
+#         next_assigns = canv.get_all_assignments(course_id)
+#         string = ''
+#         for i in  next_assigns:
+#             string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
 
-        await message.channel.send(string)
-        return
+#         await message.channel.send(string)
+#         return
 
 bot.run(TOKEN)
