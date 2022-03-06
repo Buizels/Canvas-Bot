@@ -34,6 +34,7 @@ The following libraries need to be installed. They can be installed with the fol
 
 `pip install canvasapi`
 
+**YOU HAVE TO CREATE A NEW CHANNEL IN YOUR SERVER CALLED "canvas"**
 ---
 ## TODO
 1. Use python to make a bot
