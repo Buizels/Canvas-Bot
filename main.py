@@ -22,6 +22,7 @@ async def on_message(message):
         return
 
     if message.channel.name == 'testing':
+
         if user_message.lower() == '!anon':
             await message.channel.send(canv.get_anouncement(course_id))
             await message.channel.send(canv.get_anouncement_content(announce))
@@ -32,9 +33,11 @@ async def on_message(message):
             await message.channel.send(canv.get_anouncements(course_id))
 
             return
+        
         elif user_message.lower() == "!na": 
             await message.channel.send(canv.get_next_assignment(course_id))
             return
+        
         elif user_message.lower() == "!nas":
             await message.channel.send(canv.get_anouncements(course_id))
             return
