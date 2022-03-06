@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import canv
 import os
+from dateutil import parser
 
 bot = commands.Bot(command_prefix="!")
 
@@ -63,22 +64,34 @@ async def embedMessage(message):
         next_assign = canv.get_next_assignment(course_id)
         await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
 
-        return
+        returns
 
 @bot.command(name = 'nas') #get next multiple assignments
 async def embedMessage(message):
     if message.channel.name == 'testing':
+<<<<<<< HEAD
         next_assignments = canv.get_next_assignments(course_id)
         for i in next_assignments:
             await message.channel.send(i.name + " is due at: " + str(i.due_at))      
+=======
+        next_assigns = canv.get_next_assignments(course_id)
+        string = ''
+        for i in  next_assigns:
+            string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
+>>>>>>> c52f39a86685ff34bd0b991e0229311218eba7ac
 
-            return
+        await message.channel.send(string)
+        return
 
 @bot.command(name = 'gas') #gets all assignments, ERROR
 async def embedMessage(message):
     if message.channel.name == 'testing':
-        await message.channel.send(canv.get_all_assignments(course_id))        
+        next_assigns = canv.get_all_assignments(course_id)
+        string = ''
+        for i in  next_assigns:
+            string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
 
+        await message.channel.send(string)
         return
 
 bot.run(TOKEN)
