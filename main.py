@@ -23,9 +23,19 @@ async def on_message(message):
 
     if message.channel.name == 'testing':
         if user_message.lower() == '!anon':
-            await message.channel.send(canv.get_anouncement(course_id))
+            await message.channel.send(canv.get_anouncement(course_id).message)
+            anon = str()
+
             return
-        elif user_message.lower() == '!eric':
-            await message.channel.send(f'')
+        elif user_message.lower() == '!anons':
+            await message.channel.send(canv.get_anouncements(course_id))
+
+            return
+        elif user_message.lower() == "!na": 
+            await message.channel.send(canv.get_next_assignment(course_id))
+            return
+        elif user_message.lower() == "!nas":
+            await message.channel.send(canv.get_anouncements(course_id))
+            return
 
 client.run(TOKEN)
