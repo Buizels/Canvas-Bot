@@ -6,9 +6,6 @@ from discord.ext import commands
 import canv
 import os
 
-title = ''
-text = ''
-
 bot = commands.Bot(command_prefix="!")
 
 @bot.event # Bot Status
