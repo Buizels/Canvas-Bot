@@ -57,6 +57,9 @@ async def on_message(message):
         elif user_message.lower() == "!gas":
             await message.channel.send(canv.get_all_assignments(course_id))
 
-            return
+        elif user_message.lower() == "!ping":
+            await message.channel.send("pong")
+
+        return
 
 client.run(TOKEN)
