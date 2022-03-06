@@ -38,7 +38,7 @@ The following libraries need to be installed. They can be installed with the fol
 ## TODO
 1. Use python to make a bot
     - Issues:
-        - Being able make a secret .py file
+        - Being able make a secrets.py file
         - Currently: personal usage
             - Planning: make the bot work further more for a server
         - Not everyones assignment is due on the same time
