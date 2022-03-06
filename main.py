@@ -8,10 +8,15 @@ import canv
 
 
 client = discord.Client()
-client = commands.Bot(command_prefix = '!')
+client = commands.Bot(command_prefix = "!")
+
+
+@client.event # Bot Status
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
 
 @client.command(name = 'v')
-async def version(context):
+async def version(message):
     if message.channel.name == 'testing':
 
         myEmbed = discord.Embed(title ="Current Version", description="Bot Version: 1.0.0", color = 0x000000)
@@ -23,13 +28,18 @@ async def version(context):
         await message.channel.send(embed = myEmbed)
         return
 
-@client.event # Bot Status
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-
-# @client.commands(name = 'v')
 # async def version(context):
 #     myEmbed = discord.Embed(title = "Current Version", description = "Bot version: 1.0.0", coloe)
+# @client.command()
+# async def displayembed():
+#     embed = discord.Embed(
+#         title = "Title" , 
+#         description = 'This is a description.' , 
+#         color = discord.color.blue()
+#     )
+
+#     await client.say(embed=embed)
+
 
 @client.event 
 async def on_message(message):
@@ -68,6 +78,7 @@ async def on_message(message):
 
         elif user_message.lower() == "!gas":
             await message.channel.send(canv.get_all_assignments(course_id))
+
             return
 
 client.run(TOKEN)
