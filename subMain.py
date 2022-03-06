@@ -6,7 +6,7 @@ import os
 
 client = discord.Client()
 
-client.event # Bot Status
+@client.event # Bot Status
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
