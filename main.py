@@ -17,9 +17,9 @@ async def on_ready():
 async def embedMessage(context):
     embed=discord.Embed(title="Canvas Bot ", description="Help Commands", color=0xd35650)
     embed.add_field(name="!v", value="Bot Version", inline=False)
-    embed.add_field(name="!anon", value="Announcement", inline=False)
-    embed.add_field(name="!anons", value="Multiple Announcements", inline=False)
-    embed.add_field(name="!gna", value="Next Assignment", inline=False)
+    embed.add_field(name="!an", value="Announcement", inline=False)
+    embed.add_field(name="!ans", value="Multiple Announcements", inline=False)
+    embed.add_field(name="!na", value="Next Assignment", inline=False)
     embed.add_field(name="!nas", value="Next Multiple Assignments", inline=True)
     embed.set_footer(text="!h for Canvas Bot Commands")
     await context.send(embed=embed)
@@ -37,7 +37,7 @@ async def embedMessage(context):
     await context.message.channel.send(embed = myEmbed)
     return   
 
-@bot.command(name = 'anon') #gets anouncement
+@bot.command(name = 'an') #gets anouncement
 async def embedMessage(message):
     if message.channel.name == 'canvas':
         await message.channel.send(canv.get_anouncement(course_id))
@@ -45,7 +45,7 @@ async def embedMessage(message):
 
         return
 
-@bot.command(name = 'anons') #gets anouncements, ERROR
+@bot.command(name = 'ans') #gets anouncements, ERROR
 async def embedMessage(message):
     if message.channel.name == 'canvas':
 
@@ -60,11 +60,11 @@ async def embedMessage(message):
 
         return
 
-@bot.command(name = 'gna') #gets next assignment
+@bot.command(name = 'na') #gets next assignment
 async def embedMessage(message):
     if message.channel.name == 'canvas':
         next_assign = canv.get_next_assignment(course_id)
-        await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
+        await message.channel.send(next_assign.name + " is due at: " + str(canv.convert_to_pst(next_assign.due_at)))        
 
         return
 
