@@ -10,7 +10,7 @@ This is a discord bot that makes use of the open Canvas api to remind students
 on discord about their upcoming assignments and reminds them to check their
 Canvas about more details about the assigments' due date. Using a mixture of
 Python to create functions used in commands and for the bot and will be running
-on GCS (Google Cloud Services) for hosting.
+on AWS (Amazon Web Services) for hosting.
 
 ---
 ## Problem
@@ -50,4 +50,4 @@ The following libraries need to be installed. They can be installed with the fol
 1. Have the bot display the upcoming assignments and the due dates for registered
 classes.
 
-1. Run the bot on GCS (Google Cloud Services)
+1. Run the bot on AWS (Amazon Web Services)
