@@ -60,7 +60,7 @@ async def embedMessage(message):
         next_assigns = canv.get_next_assignments(course_id)
         string = ''
         for i in  next_assigns:
-            string += str(i.name) + " is due at: " + str(i.due_at) + "\n"
+            string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
 
         await message.channel.send(string)
         return
