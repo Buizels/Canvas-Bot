@@ -5,8 +5,6 @@ import discord
 from discord.ext import commands
 import canv
 import os
-from datetime import datetime
-from dateutil import parser
 
 bot = commands.Bot(command_prefix="!")
 
@@ -54,7 +52,7 @@ async def embedMessage(message):
         next_assign = canv.get_next_assignment(course_id)
         await message.channel.send(next_assign.name + " is due at: " + str(next_assign.due_at))        
 
-        return
+        returns
 
 @bot.command(name = 'nas') #get next multiple assignments, ERROR
 async def embedMessage(message):
@@ -66,16 +64,6 @@ async def embedMessage(message):
 
         await message.channel.send(string)
         return
-
-
-        # list_assignments = []
-        # next_assignments = canv.get_next_assignments(course_id)
-        # for i in next_assignments:
-        #     list_assingments += [i.name]
-
-        # for i in range(3):
-        #     await message.channel.send(i.name + " is due at: " + str(i.due_at))            
-        #     return
 
 @bot.command(name = 'gas') #gets all assignments, ERROR
 async def embedMessage(message):
