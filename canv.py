@@ -3,6 +3,13 @@ from canvasapi import Canvas
 from datetime import datetime
 from dateutil import parser
 from pytz import timezone
+import re
+
+
+"""
+ANOUNCEMENT FUNCTIONS
+
+"""
 
 def get_anouncement(course_id):
     """
@@ -28,6 +35,22 @@ def get_anouncements(course_id):
     announce = canvas.get_announcements([course_id])
 
     return announce
+
+def get_anouncement_content(announce):
+    """
+    This function gets the content of the anouncement.
+    !TODO: Properly clean up message content
+    Currently only removes html tags and returns a string
+
+    """
+    CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
+    return re.sub(CLEANR, '', announce.message)
+
+
+"""
+ASSIGNMENT FUNCTIONS
+
+"""
 
 def get_next_assignment(course_id):
     """
@@ -79,3 +102,17 @@ def get_next_assignments(course_id):
                 next_assignments += [i]
 
     return next_assignments
+
+def get_all_assignments(course_id):
+    """
+    This function gets all assignments of the course.
+    Use <assignment>[i].due_at to get the due date.
+    Use <assignment>[i].name to get the name of the assignment.
+    
+    """
+    canvas = Canvas(LINK, API_TOKEN)
+    course = canvas.get_course(course_id)
+   
+    assignments = course.get_assignments()
+
+    return assignments
