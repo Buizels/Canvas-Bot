@@ -116,7 +116,13 @@ def get_all_assignments(course_id):
    
     assignments = course.get_assignments()
 
-    return assignments
+    temp = []
+    for i in assignments:
+        temp += [i]
+
+    return temp
+
+# Helper functions
 
 def convert_to_pst(date_string):
     """
