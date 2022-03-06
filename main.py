@@ -52,10 +52,12 @@ async def on_message(message):
         
         elif user_message.lower() == "!na": 
             await message.channel.send(canv.get_next_assignment(course_id))
+            
             return
         
         elif user_message.lower() == "!nas":
             await message.channel.send(canv.get_anouncements(course_id))
+            
             return
 
         elif user_message.lower() == "!gas":
