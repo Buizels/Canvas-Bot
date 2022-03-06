@@ -79,6 +79,12 @@ async def embedMessage(message):
         await message.channel.send(string)
         return
 
+@bot.command(name = 'ping')
+async def ping(message):
+    if message.channel.name == 'canvas':
+        await message.channel.send("pong")
+        return
+
 # !TODO
 # @bot.command(name = 'gas') #gets all assignments, ERROR
 # async def embedMessage(message):
