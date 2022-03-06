@@ -8,15 +8,11 @@ import canv
 
 
 client = discord.Client()
-client = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!')
 
 @client.event # Bot Status
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-
-@client.command
-async def 
-
 
 # @client.event 
 # async def on_message(message):
