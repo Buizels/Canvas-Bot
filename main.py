@@ -13,6 +13,17 @@ bot = commands.Bot(command_prefix="!")
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
 
+@bot.command(name = 'h')
+async def embedMessage(context):
+    embed=discord.Embed(title="Canvas Bot ", description="Help Commands", color=0xd35650)
+    embed.add_field(name="!v", value="Bot Version", inline=False)
+    embed.add_field(name="!anon", value="Announcement", inline=False)
+    embed.add_field(name="!anons", value="Multiple Announcements", inline=False)
+    embed.add_field(name="!gna", value="Next Assignment", inline=False)
+    embed.add_field(name="!nas", value="Next Multiple Assignments", inline=True)
+    embed.set_footer(text="!h for Canvas Bot Commands")
+    await context.send(embed=embed)
+
 
 @bot.command(name = 'v')
 async def embedMessage(context):
@@ -56,13 +67,19 @@ async def embedMessage(message):
 
         return
 
-@bot.command(name = 'nas') #get next multiple assignments, ERROR
+@bot.command(name = 'nas') #get next multiple assignments
 async def embedMessage(message):
     if message.channel.name == 'testing':
+<<<<<<< HEAD
+        next_assignments = canv.get_next_assignments(course_id)
+        for i in next_assignments:
+            await message.channel.send(i.name + " is due at: " + str(i.due_at))      
+=======
         next_assigns = canv.get_next_assignments(course_id)
         string = ''
         for i in  next_assigns:
             string += str(i.name) + " is due at: " + str(canv.convert_to_pst(i.due_at)) + "\n"
+>>>>>>> c52f39a86685ff34bd0b991e0229311218eba7ac
 
         await message.channel.send(string)
         return
