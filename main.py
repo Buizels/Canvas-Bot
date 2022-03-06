@@ -71,10 +71,6 @@ async def embedMessage(message):
 @bot.command(name = 'nas') #get next multiple assignments
 async def embedMessage(message):
     if message.channel.name == 'canvas':
-        next_assignments = canv.get_next_assignments(course_id)
-        for i in next_assignments:
-            await message.channel.send(i.name + " is due at: " + str(i.due_at))      
-    if message.channel.name == 'testing':
         next_assigns = canv.get_next_assignments(course_id)
         string = ''
         for i in  next_assigns:
